@@ -38,7 +38,7 @@ module Yt
       @headers = options.fetch :headers, {}
       @body = options[:body]
       @request_format = options.fetch :request_format, :json
-      @error_message = options.fetch :error_message, ->(body) {"Error: #{body}"}
+      @error_message = options.fetch :error_message, ->(code) {"Error: #{code}"}
     end
 
     # Sends the request and returns the response with the body parsed from JSON.
@@ -150,7 +150,7 @@ module Yt
     end
 
     def error_message
-      @error_message.call response.body
+      @error_message.call response.code
     end
 
     def instrument(&block)

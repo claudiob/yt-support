@@ -3,7 +3,7 @@ module Yt
   class HTTPError < StandardError
     attr_reader :response
 
-    def initialize(msg, response:)
+    def initialize(msg, response: nil)
       super msg
       @response = response
     end

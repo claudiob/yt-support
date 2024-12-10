@@ -3,6 +3,6 @@ module Yt
   module Support
     # @return [String] the SemVer-compatible gem version.
     # @see http://semver.org
-    VERSION = '0.1.4'
+    VERSION = '1.0.0'
   end
 end

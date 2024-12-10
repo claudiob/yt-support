@@ -63,7 +63,7 @@ curl
     request = Yt::HTTPRequest.new path: path, method: :post, body: body
 
     it 'raises an HTTPError' do
-      expect{request.run}.to raise_error Yt::HTTPError, 'Error: Not Found'
+      expect{request.run}.to raise_error Yt::HTTPError, 'Error: 404'
     end
   end
 
