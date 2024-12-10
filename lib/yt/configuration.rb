@@ -47,8 +47,12 @@ module Yt
     # @return [String] the access token to act on behalf of a YouTube account.
     attr_accessor :access_token
 
-    # @return [String] the token to refresh an expired access token.
-    attr_accessor :refresh_token
+    # @return [String] a mock error to raise when trying to authenticate.
+    attr_accessor :mock_auth_error
+
+    # @return [String] a mock email to return when authenticating.
+    # If 'invalid-email' then try to authenticate will raise an error.
+    attr_accessor :mock_auth_email
 
     # Initialize the global configuration settings, using the values of
     # the specified following environment variables by default.
@@ -57,6 +61,8 @@ module Yt
       @client_secret = ENV['YT_CLIENT_SECRET']
       @api_key = ENV['YT_API_KEY']
       @log_level = ENV['YT_LOG_LEVEL']
+      @mock_auth_error = ENV['YT_MOCK_AUTH_ERROR']
+      @mock_auth_email = ENV['YT_MOCK_AUTH_EMAIL']
     end
 
     # @return [Boolean] whether the logging output is extra-verbose.
